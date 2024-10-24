@@ -3,19 +3,23 @@
 <head>
   <title>HTML Calculator</title>
   <style>
-    /* Add some basic styling to make the calculator look decent */
+    /* Global Styles */
     body {
       font-family: Arial, sans-serif;
-    }
-    .calculator {
-      width: 200px;
-      margin: 50px auto;
       background-color: #f0f0f0;
+    }
+
+    /* Calculator Styles */
+    .calculator {
+      width: 250px;
+      margin: 50px auto;
+      background-color: #fff;
       padding: 20px;
       border: 1px solid #ccc;
       border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     .calculator input[type="text"] {
       width: 100%;
       height: 40px;
@@ -23,43 +27,73 @@
       padding: 10px;
       font-size: 24px;
       border: 1px solid #ccc;
+      border-radius: 5px;
     }
+
     .calculator input[type="button"] {
-      width: 100%;
+      width: 50px;
       height: 40px;
-      margin-bottom: 20px;
+      margin: 5px;
       padding: 10px;
-      font-size: 24px;
+      font-size: 18px;
       border: none;
       border-radius: 5px;
       background-color: #4CAF50;
       color: #fff;
       cursor: pointer;
     }
+
     .calculator input[type="button"]:hover {
       background-color: #3e8e41;
+    }
+
+    .calculator input[type="button"].operator {
+      background-color: #03A9F4;
+    }
+
+    .calculator input[type="button"].operator:hover {
+      background-color: #039BE5;
+    }
+
+    .calculator input[type="button"].clear {
+      background-color: #FF0000;
+    }
+
+    .calculator input[type="button"].clear:hover {
+      background-color: #FF3737;
     }
   </style>
 </head>
 <body>
   <div class="calculator">
     <input type="text" id="display" disabled>
-    <input type="button" value="7" onclick="document.getElementById('display').value += '7'">
-    <input type="button" value="8" onclick="document.getElementById('display').value += '8'">
-    <input type="button" value="9" onclick="document.getElementById('display').value += '9'">
-    <input type="button" value="+" onclick="document.getElementById('display').value += '+'">
-    <input type="button" value="4" onclick="document.getElementById('display').value += '4'">
-    <input type="button" value="5" onclick="document.getElementById('display').value += '5'">
-    <input type="button" value="6" onclick="document.getElementById('display').value += '6'">
-    <input type="button" value="-" onclick="document.getElementById('display').value += '-'">
-    <input type="button" value="1" onclick="document.getElementById('display').value += '1'">
-    <input type="button" value="2" onclick="document.getElementById('display').value += '2'">
-    <input type="button" value="3" onclick="document.getElementById('display').value += '3'">
-    <input type="button" value="*" onclick="document.getElementById('display').value += '*'">
-    <input type="button" value="0" onclick="document.getElementById('display').value += '0'">
-    <input type="button" value="." onclick="document.getElementById('display').value += '.'">
-    <input type="button" value="=" onclick="document.getElementById('display').value = eval(document.getElementById('display').value)">
-    <input type="button" value="C" onclick="document.getElementById('display').value = ''">
+    <div class="button-row">
+      <input type="button" value="7" onclick="document.getElementById('display').value += '7'">
+      <input type="button" value="8" onclick="document.getElementById('display').value += '8'">
+      <input type="button" value="9" onclick="document.getElementById('display').value += '9'">
+      <input type="button" value="+" class="operator" onclick="document.getElementById('display').value += '+'">
+    </div>
+    <div class="button-row">
+      <input type="button" value="4" onclick="document.getElementById('display').value += '4'">
+      <input type="button" value="5" onclick="document.getElementById('display').value += '5'">
+      <input type="button" value="6" onclick="document.getElementById('display').value += '6'">
+      <input type="button" value="-" class="operator" onclick="document.getElementById('display').value += '-'">
+    </div>
+    <div class="button-row">
+      <input type="button" value="1" onclick="document.getElementById('display').value += '1'">
+      <input type="button" value="2" onclick="document.getElementById('display').value += '2'">
+      <input type="button" value="3" onclick="document.getElementById('display').value += '3'">
+      <input type="button" value="*" class="operator" onclick="document.getElementById('display').value += '*'">
+    </div>
+    <div class="button-row">
+      <input type="button" value="0" onclick="document.getElementById('display').value += '0'">
+      <input type="button" value="." onclick="document.getElementById('display').value += '.'">
+      <input type="button" value="=" class="operator" onclick="document.getElementById('display').value = eval(document.getElementById('display').value)">
+      <input type="button" value="/" class="operator" onclick="document.getElementById('display').value += '/'">
+    </div>
+    <div class="button-row">
+      <input type="button" value="C" class="clear" onclick="document.getElementById('display').value = ''">
+    </div>
   </div>
 </body>
 </html>
